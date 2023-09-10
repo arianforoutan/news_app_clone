@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:news_app_clone/screenes/HomeScreen.dart';
-import 'package:news_app_clone/screenes/MainScreen.dart';
-import 'package:news_app_clone/screenes/explore.dart';
-import 'package:news_app_clone/screenes/newsscreen.dart';
+import 'package:news_app_clone/screens/HomeScreen.dart';
+import 'package:news_app_clone/screens/MainScreen.dart';
+import 'package:news_app_clone/screens/explore.dart';
+import 'package:news_app_clone/screens/newsscreen.dart';
 
 void main() {
   runApp(Application());
