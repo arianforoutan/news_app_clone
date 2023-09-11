@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_clone/widget/newscard.dart';
 import 'package:news_app_clone/widget/newsco_card.dart';
-
-import 'newsscreen.dart';
+import 'package:simple_animations/simple_animations.dart';
 
 class Explore extends StatefulWidget {
   const Explore({Key? key}) : super(key: key);
@@ -219,10 +218,47 @@ class _ExploreState extends State<Explore> {
             ],
           ),
           Positioned(
-              left: 0,
-              right: 0,
-              bottom: MediaQuery.of(context).size.height / 15,
-              child: subtitlenews())
+            left: 0,
+            right: 0,
+            bottom: MediaQuery.of(context).size.height / 15,
+            child: Directionality(
+              textDirection: TextDirection.rtl,
+              child: Container(
+                height: 50,
+                color: Color(0xffFF033E),
+                width: double.infinity,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CustomAnimationBuilder<double>(
+                        control: Control
+                            .loop, // bind variable with control instruction
+                        tween: Tween<double>(begin: -1000, end: 1000),
+                        duration: const Duration(seconds: 20),
+                        builder: (context, value, child) {
+                          // moves child from left to right
+                          return Transform.translate(
+                            transformHitTests: false,
+                            offset: Offset(value, 0),
+                            child: Text(
+                              ' بی‌نظمی شدید در مراسم رونمایی از کاپ جام جهانی و قهر نماینده فیفا   برانکو تکذیب کرد/ نه با عمان فسخ کردم، نه با ایران مذاکره داشتم ...',
+                              style: TextStyle(
+                                fontFamily: 'SH',
+                                fontSize: 16,
+                                color: Colors.white,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
